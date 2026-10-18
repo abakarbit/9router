@@ -1,0 +1,18 @@
+# 9Router - AI Routing Gateway
+# Bind local 127.0.0.1:20128
+# Bind publik hanya tulis ports 20128:20128
+services:
+  9router:
+    image: decolua/9router:latest
+    container_name: 9router
+    restart: unless-stopped
+
+    ports:
+      - "127.0.0.1:20128:20128"
+
+    environment:
+      DATA_DIR: /app/data
+      INITIAL_PASSWORD: '123456'
+
+    volumes:
+      - ./data:/app/data
